@@ -14,18 +14,15 @@ modify source code lucky.py:
 # 抽中次数和奖金
 award = {0: 0, 1: 15, 2: 30, 3: 60, 4: 200, 5: 500, 6: 1000}
 
-# 大奖数字
-number = []
-# 你的投注
-answer = []
-
 # 抽奖次数，不能超过6次
 n = 3
 
 # 抽奖数字范围，从1开始
 scope = 20
 ```
+
 # run
+
 ```sh
 zhh@/Users/zhh/git/lucky git:(master) ✗ $ python lucky.py
 =====游戏规则=====

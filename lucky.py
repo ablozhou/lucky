@@ -1,24 +1,27 @@
 # 1注投10元，每投10元就加一注，猜中数字个数和奖金如award所示。
 import random
 #================================================================
-# 设置
+# 设置 Settings
 # 抽中次数和奖金
 award = {0: 0, 1: 15, 2: 30, 3: 60, 4: 200, 5: 500, 6: 1000}
-
-# 大奖数字
-number = []
-# 你的投注
-answer = []
 
 # 抽奖次数，不能超过6次
 n = 3
 
 # 抽奖数字范围，从1开始
 scope = 20
-
-
 # =================================================================
+
+# 大奖数字
+number = []
+# 你的投注
+answer = []
+
+
 def printRule():
+    '''
+    打印游戏规则
+    '''
     print("=====游戏规则=====")
     print(f"投注额10，在1到{scope}范围内，说{n}个数字，作为奖注。")
 
@@ -29,20 +32,24 @@ def printRule():
 
 
 def genNumbers():
+    '''产生大奖数字'''
     for i in range(n):
         r = random.randint(1, scope)
         number.append(r)
 
 
 def guess():
+    '''投注'''
     for i in range(n):
         a = input(f"请说第{i+1}个数:")
         answer.append(int(a))
 
 
 def drawAward():
+    '''抽奖'''
     genNumbers()
 
+    # 中奖次数
     count = 0
     awardnum = []
     for i in answer:
@@ -58,14 +65,15 @@ def drawAward():
         print(f"你中了{n-count+1}等奖，中奖数字为{awardnum},奖金为{award[count]}")
 
 
-play = True
+if __name__ == "__main__":
+    play = True
 
-printRule()
-while play:
-    guess()
-    drawAward()
+    printRule()
+    while play:
+        guess()
+        drawAward()
 
-    p = input("还玩吗(Y/N)？[Y] ")
-    if p == "N" or p == "n":
-        play = False
-        print("下次再来玩，祝好运！！！")
+        p = input("还玩吗(Y/N)？[Y] ")
+        if p == "N" or p == "n":
+            play = False
+            print("下次再来玩，祝好运！！！")
